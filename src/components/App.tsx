@@ -7,13 +7,13 @@ import Help from './Help/Help';
 
 function App() {
 
-	const [openModal, setOpenModal] = useState(false);
+	const [openHelpModal, setOpenHelpModal] = useState(true);
 
 	return (
 		<div className="wrapper">
-			<Header openModal={setOpenModal}/>
+			<Header openHelp={setOpenHelpModal}/>
 			<div className="mt-10 mb-10">
-				<Help />
+				<Help isOpen={openHelpModal} setIsOpen={setOpenHelpModal}/>
 				<Game />
 			</div>
 			<div className="mt-2 mb-2">

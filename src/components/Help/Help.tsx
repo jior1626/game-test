@@ -3,9 +3,15 @@ import { useState, Fragment } from "react"
 import Button from "../../shared/atoms/Button/Buttons";
 import "./Help.css";
 
-export default function Help() {
 
-	let [isOpen, setIsOpen] = useState(true)
+interface HelpInterface {
+	isOpen: boolean;
+	setIsOpen: Function;
+}
+
+const Help: React.FC<HelpInterface> = ({isOpen, setIsOpen}) => {
+
+	// let [isOpen, setIsOpen] = useState(true)
 
 	function closeModal() {
 		setIsOpen(false)
@@ -131,3 +137,5 @@ export default function Help() {
 		</>
 	)
 }
+
+export default Help;
