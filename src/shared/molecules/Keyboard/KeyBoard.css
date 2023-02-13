@@ -1,0 +1,20 @@
+.container-fluid{
+    padding: 30px;
+    width: 50%  !important;
+    margin: 0 auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgba(218, 220, 224, 0.3);
+}
+
+.letter{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.letter2{
+    padding-left: 50px;
+    padding-right: 30px;
+}
+
+

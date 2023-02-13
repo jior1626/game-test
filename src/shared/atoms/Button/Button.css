@@ -1,0 +1,11 @@
+.border-1 {
+    border-width: 1px !important;
+}
+
+.color-gray {
+    background-color: rgba(147, 155, 159, 0.3) !important;
+}
+
+.color-gray-selected {
+    background-color: #818181 !important;
+}

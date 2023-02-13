@@ -1,3 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+.header {
+    background: #F3F3F3;
+    width: 50%;
+    margin: 0 auto;
+}
