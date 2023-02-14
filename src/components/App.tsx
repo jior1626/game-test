@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from '../shared/molecules/Header/Header';
-import Keyboard from '../shared/molecules/Keyboard/Keyboard';
+import Keyboard from '../shared/molecules/Keyboard/KeyBoard';
 import Game from './Game/Game';
 import Help from './Help/Help';
 import Statistics from './Statistics/Statistics';
@@ -19,7 +19,7 @@ function App() {
 		if (counter > 0) {
 			timer = setTimeout(() => setCounter(c => c - 1), 1000);
 		}
-		if (counter == 0) {
+		if (counter === 0) {
 			// clearTimeout(timer);
 			setCounter(300);
 		}
@@ -43,12 +43,12 @@ function App() {
 	return (
 		<div className="wrapper">
 			<Header openHelp={setOpenHelpModal} openStatistics={setOpenStatisticsModal}/>
-			<div className="mt-10 mb-10">
+			<div className="mt-2 mb-2">
 				<Help isOpen={openHelpModal} setIsOpen={setOpenHelpModal}/>
 				<Statistics isOpen={openStatisticsModal} setIsOpen={setOpenStatisticsModal} countdown={format(counter)}/>
 				<Game />
 			</div>
-			<div className="mt-2 mb-2">
+			<div>
 				<Keyboard  />
 			</div>
 		</div>
