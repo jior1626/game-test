@@ -5,9 +5,10 @@ import './Header.css';
 
 interface HeaderInterface {
     openHelp: Function;
+    openStatistics: Function;
 }
 
-const Header: React.FC<any> = ({openHelp}) => {
+const Header: React.FC<HeaderInterface> = ({openHelp, openStatistics}) => {
 
     const [enabled, setEnabled] = useState(false)
 
@@ -27,7 +28,7 @@ const Header: React.FC<any> = ({openHelp}) => {
                         <h1 className='ml-14'>PALABRA</h1>
                         </div>
                         <div className="flex items-center lg:order-3" id="mobile-menu-2">
-                            <a href="#" className="flex items-center px-4">
+                            <a href="#" onClick={() => openStatistics(true)} className="flex items-center px-4">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                                     <path fillRule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm4.5 7.5a.75.75 0 01.75.75v2.25a.75.75 0 01-1.5 0v-2.25a.75.75 0 01.75-.75zm3.75-1.5a.75.75 0 00-1.5 0v4.5a.75.75 0 001.5 0V12zm2.25-3a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0V9.75A.75.75 0 0113.5 9zm3.75-1.5a.75.75 0 00-1.5 0v9a.75.75 0 001.5 0v-9z" clipRule="evenodd" />
                                 </svg>

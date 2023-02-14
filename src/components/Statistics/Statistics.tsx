@@ -16,10 +16,6 @@ const Statistics: React.FC<StatisticsInterface> = ({isOpen, setIsOpen, countdown
 		setIsOpen(false)
 	}
 
-	function openModal() {
-		setIsOpen(true)
-	}
-
 	return (
 		<>
 			{/* <div className="fixed inset-0 flex items-center justify-center">
@@ -66,19 +62,23 @@ const Statistics: React.FC<StatisticsInterface> = ({isOpen, setIsOpen, countdown
 										Estadísticas
 									</Dialog.Title>
 
-									<div className="mt-9">
-										<p className="text-left text-sm text-black">
-											Adivina la palabra oculta en cinco intentos. Cada intento debe ser una palabra válida de 5 letras. Después de cada intento el color de las letras cambia para mostrar qué tan cerca estás de acertar la palabra.
-										</p>
-										<h4 className="mt-5 text-left text-xl text-black font-bold">Ejemplos</h4>
-									</div>
-
 									<Dialog.Description
 										as="div"
 										className="mt-5"
 									>
-										<div className="mt-7 mb-6">
-											<p className="font-semibold text-center text-xs">SIGUIENTE PALABRA</p>
+                                        <div className="flex flex-row place-content-evenly">
+                                            <div className="mt-4">
+                                                <h4 className="text-center">2</h4>
+                                                <p className="text-center">Jugadas</p>
+                                            </div>
+                                            <div className="mt-4">
+                                                <h4 className="text-center">4</h4>
+                                                <p className="text-center">Victorias</p>
+                                            </div>
+										</div>
+										<div className="mt-7 mb-6 flex flex-col">
+                                            <p className="text-center text-xs mb-5">La palabra era: <strong></strong></p>
+											<p className="text-center text-xs">SIGUIENTE PALABRA</p>
 											<p className="mt-4 text-center font-semibold">{countdown}</p>
 										</div>
 

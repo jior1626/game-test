@@ -10,6 +10,8 @@ function App() {
 
 	const [openHelpModal, setOpenHelpModal] = useState(true);
 
+	const [openStatisticsModal, setOpenStatisticsModal] = useState(false);
+
 	const [counter, setCounter] = useState(20);
 
 	useEffect(() => {
@@ -40,10 +42,10 @@ function App() {
 
 	return (
 		<div className="wrapper">
-			<Header openHelp={setOpenHelpModal}/>
+			<Header openHelp={setOpenHelpModal} openStatistics={setOpenStatisticsModal}/>
 			<div className="mt-10 mb-10">
-				{/* <Help isOpen={openHelpModal} setIsOpen={setOpenHelpModal}/> */}
-				<Statistics isOpen={openHelpModal} setIsOpen={setOpenHelpModal} countdown={format(counter)}/>
+				<Help isOpen={openHelpModal} setIsOpen={setOpenHelpModal}/>
+				<Statistics isOpen={openStatisticsModal} setIsOpen={setOpenStatisticsModal} countdown={format(counter)}/>
 				<Game />
 			</div>
 			<div className="mt-2 mb-2">
