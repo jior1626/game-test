@@ -6,13 +6,14 @@ import "../Game/Game.css"
 
 
 interface GameInterface {
-    letterClick: string
+    letterClick: string,
+    setLetter: Function
 }
 
-const Game: FC<GameInterface>  = ({letterClick = ""}) => {
+const Game: FC<GameInterface>  = ({letterClick = "", setLetter}) => {
 
     const [file, setFile] = useState(0);
-    const [column, setColumn] = useState(0);
+    const [column, setColumn] = useState(1);
     const [onpress, setOnpress] = useState(0);
 
     document.getElementById(`board-row-${file}-col-${column}`)?.classList.add(
@@ -30,36 +31,28 @@ const Game: FC<GameInterface>  = ({letterClick = ""}) => {
     const [matriz, setMatriz] = useState(array);
 
     useEffect(() => {
-
-        console.log("letter", letterClick);
-        console.log("column", column);
-        setColumn(column+ 1)
-
         
-        if(column > 4) {
-            setFile(() => file + 1)
-            setColumn(0);
-        }    
+        if (letterClick !== "") {
+        
+            console.log("letter", letterClick);
+            console.log("column", column);
+            setColumn(column + 1)
 
-        const old = matriz[file];
-        old[column - 1] = letterClick;
-        const clone = [...matriz];
-        clone[file] = old
+            if(column > 4) {
+                setFile(() => file + 1)
+                setColumn(1);
+            }    
 
-        setMatriz(clone);
+            const old = matriz[file];
+            old[column - 1] = letterClick;
+            const clone = [...matriz];
+            clone[file] = old
 
-        console.log("clone", clone);
-
-    }, [letterClick, !letterClick])
-
-    const loopThroughArray = (lyrics: string) => {
-        for (let x = 0; x < matriz.length; x++) {
-            for (let y = 0; y < matriz[x].length; y++) {
-                console.log(matriz[x][y]);
-                matriz[x][y] = lyrics;
-            }
+            setMatriz(clone);
+            setLetter("");
+            console.log("clone", clone);
         }
-    };
+    }, [letterClick])
 
     function columns(row: any[], idxRow: any) {
         return row.map((item, idxCol) => (

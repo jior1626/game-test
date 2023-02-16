@@ -1,5 +1,6 @@
-import { useState, FC } from 'react';
+import { useState, FC, useContext } from 'react';
 import { useDispatch } from 'react-redux';
+import { WordleContext } from "./../../../context/GameContext";
 import { GlobalDispatch } from '../../../store';
 import Button from '../../atoms/Button/Buttons';
 import "./KeyBoard.css"
@@ -9,6 +10,8 @@ interface KeyBoardInterface {
 }
 
 const KeyBoard: FC<KeyBoardInterface> = ({ setLetter }) => {
+
+    const { revealedLetters, handlePressBackspace, handlePressEnter, handlePressLetter } = useContext(WordleContext);
 
     const [letterKey, setLetterKey] = useState("");
 
@@ -20,19 +23,15 @@ const KeyBoard: FC<KeyBoardInterface> = ({ setLetter }) => {
         ['ENTER', 'Z', 'X', 'C', 'V', 'B', 'N', 'M']
     ];
 
-    // const onPressKey = (letter)  => {
-    //     dispatch({
-    //         type: "PRESS_LETTER",
-    //         payload: {letter: letter}
-    //     })
-    // }
+    const handlePressKey = (key: string) => () => {
+        setLetter(key);
+        handlePressLetter(key);
+      };
 
     function columns(rows: any[], indexColumn: number) {
-
         return rows.map((r, i) => (
-            <div key={`key-row-${r}-column-${indexColumn}`} style={{ padding: 3 }} onClick={() => setLetter(r)}>
+            <div key={`key-row-${r}-column-${indexColumn}`} style={{ padding: 3 }} onClick={() => handlePressKey(r)}>
                 <button key={`key-button-${r}`} style={{ padding: 10, minWidth: 35, background: 'rgba(147, 155, 159, 0.3)', borderRadius: 5 }} >
-
                     {indexColumn == (matriz.length - 1) && i == (rows.length - 1) ? (
                         <>
                             <svg style={{ width: 60 }} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

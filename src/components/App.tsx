@@ -27,12 +27,6 @@ function App() {
 		}
 	}, [counter]);
 
-
-	useEffect(() => {
-		var newLetter = letter;
-		setLetter(newLetter)
-	}, [setLetter])
-
 	const padTime = (time: any) => {
 		return String(time).length === 1 ? `0${time}` : `${time}`;
 	};
@@ -57,7 +51,7 @@ function App() {
 			<Header openHelp={setOpenHelpModal} openStatistics={setOpenStatisticsModal}/>
 			<Help isOpen={openHelpModal} setIsOpen={setOpenHelpModal}/>
 			<Statistics isOpen={openStatisticsModal} setIsOpen={setOpenStatisticsModal} countdown={format(counter)}/>
-			<Game letterClick={letter} />
+			<Game letterClick={letter} setLetter={setLetter}/>
 			<Keyboard setLetter={setLetter}/>
 		</div>
 	);
