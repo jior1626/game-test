@@ -5,4 +5,9 @@ export interface AddLetter {
     payload: Letter;
 }
 
-export type ActionTypes = AddLetter;
+export interface PressLetter {
+    type: 'PRESS_LETTER';
+    payload: Letter;
+}
+
+export type ActionTypes = AddLetter | PressLetter;

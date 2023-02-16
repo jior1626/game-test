@@ -14,6 +14,8 @@ function App() {
 
 	const [counter, setCounter] = useState(20);
 
+	const [letter, setLetter] = useState("");
+
 	useEffect(() => {
 		let timer: any;
 		if (counter > 0) {
@@ -24,6 +26,12 @@ function App() {
 			setCounter(300);
 		}
 	}, [counter]);
+
+
+	useEffect(() => {
+		var newLetter = letter;
+		setLetter(newLetter)
+	}, [setLetter])
 
 	const padTime = (time: any) => {
 		return String(time).length === 1 ? `0${time}` : `${time}`;
@@ -40,17 +48,17 @@ function App() {
 		return `${minutes}:${padTime(seconds)}`;
 	};
 
+	const letterClick = () => {
+
+	}
+
 	return (
-		<div className="wrapper">
+		<div className="wrapper min-w-screen min-h-screen">
 			<Header openHelp={setOpenHelpModal} openStatistics={setOpenStatisticsModal}/>
-			<div className="mt-2 mb-2">
-				<Help isOpen={openHelpModal} setIsOpen={setOpenHelpModal}/>
-				<Statistics isOpen={openStatisticsModal} setIsOpen={setOpenStatisticsModal} countdown={format(counter)}/>
-				<Game />
-			</div>
-			<div>
-				<Keyboard  />
-			</div>
+			<Help isOpen={openHelpModal} setIsOpen={setOpenHelpModal}/>
+			<Statistics isOpen={openStatisticsModal} setIsOpen={setOpenStatisticsModal} countdown={format(counter)}/>
+			<Game letterClick={letter} />
+			<Keyboard setLetter={setLetter}/>
 		</div>
 	);
 }

@@ -13,6 +13,8 @@ export function reducer(state = initialState, action: ActionTypes): GlobalState 
             letters.push({...action.payload})
             return {...state, letters: [...letters] }
         }
+        case "PRESS_LETTER": {
+        }
     }
     return state;
 }
